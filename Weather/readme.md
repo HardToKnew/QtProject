@@ -4,7 +4,7 @@
 
 
 
-![image-20230722152454139](./readme.assets/image-20230722152454139.png)
+![image-20230722152454139](https://cdn.jsdelivr.net/gh/HardToKnew/QtProject/Weather/readme.assets/image-20230722152454139.png)
 
 
 

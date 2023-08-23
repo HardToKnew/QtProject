@@ -1,0 +1,81 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/QQMusic.png</file>
+        <file>images/QQMusic.ico</file>
+        <file>font/SweiHalfMoonCJKsc-Bold.subset.ttf</file>
+        <file>images/back-96-black.png</file>
+        <file>images/back-96-green.png</file>
+        <file>images/close-96-black.png</file>
+        <file>images/close-96-green.png</file>
+        <file>images/forward-96-black.png</file>
+        <file>images/history-96-balck.png</file>
+        <file>images/history-96-green.png</file>
+        <file>images/local-96-black.png</file>
+        <file>images/local-96-green.png</file>
+        <file>images/maximize-96-black.png</file>
+        <file>images/maximize-96-green.png</file>
+        <file>images/minimize-96-black.png</file>
+        <file>images/minimize-96-green.png</file>
+        <file>images/music hall-96-black.png</file>
+        <file>images/music hall-96-green.png</file>
+        <file>images/music list-96-black.png</file>
+        <file>images/music list-96-green.png</file>
+        <file>images/radar-96-black.png</file>
+        <file>images/radar-96-green.png</file>
+        <file>images/simple-96-black.png</file>
+        <file>images/simple-96-green.png</file>
+        <file>images/video-96-black.png</file>
+        <file>images/video-96-green.png</file>
+        <file>images/forward-96-green.png</file>
+        <file>images/login-96.png</file>
+        <file>images/segmdl2-multitask-96-black.png</file>
+        <file>images/segmdl2-multitask-96-green.png</file>
+        <file>images/maximize-96-black1.png</file>
+        <file>images/maximize-96-green1.png</file>
+        <file>images/play/dislike-96-black.png</file>
+        <file>images/play/dislike-96-green.png</file>
+        <file>images/play/download-96-black.png</file>
+        <file>images/play/download-96-green.png</file>
+        <file>images/play/like-96-black.png</file>
+        <file>images/play/like-96-red.png</file>
+        <file>images/play/list loop-96-black.png</file>
+        <file>images/play/list loop-96-green.png</file>
+        <file>images/play/more-96-black.png</file>
+        <file>images/play/more-96-green.png</file>
+        <file>images/play/next-96-black.png</file>
+        <file>images/play/next-96-green.png</file>
+        <file>images/play/playCircle-96-green.png</file>
+        <file>images/play/play in order-96-black.png</file>
+        <file>images/play/play in order-96-green.png</file>
+        <file>images/play/play queue-96-black.png</file>
+        <file>images/play/play queue-96-green.png</file>
+        <file>images/play/pauseCircle-96-green.png</file>
+        <file>images/play/playMV-96-black.png</file>
+        <file>images/play/playMV-96-green.png</file>
+        <file>images/play/previous-96-black.png</file>
+        <file>images/play/previous-96-green.png</file>
+        <file>images/play/review-96-black.png</file>
+        <file>images/play/review-96-green.png</file>
+        <file>images/play/shuffle playback-96-black.png</file>
+        <file>images/play/shuffle playback-96-green.png</file>
+        <file>images/play/single cycle-96-black.png</file>
+        <file>images/play/single cycle-96-green.png</file>
+        <file>images/play/volume-96-black.png</file>
+        <file>images/play/volume-96-green.png</file>
+        <file>images/play/volumeCross-96-black.png</file>
+        <file>images/play/volumeCross-96-green.png</file>
+        <file>images/play/song details-96-black.png</file>
+        <file>images/play/up-96-black.png</file>
+        <file>images/play/up-96-green.png</file>
+        <file>images/search-16-black.png</file>
+        <file>images/search-16-green.png</file>
+        <file>images/renew-16-black.png</file>
+        <file>images/renew-16-green.png</file>
+        <file>images/listen-16-black.png</file>
+        <file>images/listen-16-green.png</file>
+        <file>images/skin-32-black.png</file>
+        <file>images/skin-32-green.png</file>
+        <file>images/mainMenu-32-black.png</file>
+        <file>images/mainMenu-32-green.png</file>
+    </qresource>
+</RCC>

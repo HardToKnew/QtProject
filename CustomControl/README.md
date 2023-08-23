@@ -12,7 +12,7 @@
 
 ​	自定义汽车仪表盘控件，效果图如下
 
-![image-20230728131101368](./README.assets/image-20230728131101368.png)
+![image-20230728131101368](https://cdn.jsdelivr.net/gh/HardToKnew/QtProject/CustomControl/README.assets/image-20230728131101368.png)
 
 
 
@@ -32,5 +32,5 @@
 
 * ### CarDashBoard使用效果
 
-![CarDashBoard](./README.assets/CarDashBoard.gif)
+![CarDashBoard](https://cdn.jsdelivr.net/gh/HardToKnew/QtProject/CustomControl/README.assets/CarDashBoard.gif)
 
