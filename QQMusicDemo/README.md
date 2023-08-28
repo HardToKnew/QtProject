@@ -2,7 +2,7 @@
 
 ​	模仿qq音乐桌面版ui实现单机音乐播放器
 
-
+![music](https://cdn.jsdelivr.net/gh/HardToKnew/QtProject/QQMusicDemo/README.assets/music.gif)
 
 ## 项目进展
 
