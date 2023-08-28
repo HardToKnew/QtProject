@@ -77,5 +77,16 @@
         <file>images/skin-32-green.png</file>
         <file>images/mainMenu-32-black.png</file>
         <file>images/mainMenu-32-green.png</file>
+        <file>images/recommend-black-96.png</file>
+        <file>images/recommend-green-96.png</file>
+        <file>images/like-96-black.png</file>
+        <file>images/like-96-green.png</file>
+        <file>images/add-16-black.png</file>
+        <file>images/add-16-grey.png</file>
+        <file>images/arrow-down-bold-16-black.png</file>
+        <file>images/arrow-down-bold-16-grey.png</file>
+        <file>images/arrow-up-bold-16-black.png</file>
+        <file>images/arrow-up-bold-16-grey.png</file>
+        <file>images/arrow-up-bold-96-black.png</file>
     </qresource>
 </RCC>

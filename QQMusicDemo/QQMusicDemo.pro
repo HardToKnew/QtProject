@@ -47,6 +47,8 @@ contains(QT_ARCH, i386) {
 SOURCES += \
     main.cpp \
     qqmusicdemo.cpp \
+    src/qcustombutton.cpp \
+    src/qfoldwidget.cpp \
     src/qqmusiccenterw.cpp \
     src/qqmusiclistw.cpp \
     src/qqmusicmenu.cpp \
@@ -54,6 +56,8 @@ SOURCES += \
 
 HEADERS += \
     qqmusicdemo.h \
+    src/qcustombutton.h \
+    src/qfoldwidget.h \
     src/qqmusiccenterw.h \
     src/qqmusiclistw.h \
     src/qqmusicmenu.h \

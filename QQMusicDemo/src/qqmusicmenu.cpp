@@ -128,7 +128,7 @@ void QQMusicMenu::initMusicMenu()
     titleLayout->addWidget(lbTitle);
     //标题栏图标及标题栏面板
     QWidget *wTitle = new QWidget;
-    wTitle->setFixedSize(200,50);
+    wTitle->setFixedSize(202,50);
     wTitle->setLayout(titleLayout);
     //----------------
 
@@ -137,7 +137,7 @@ void QQMusicMenu::initMusicMenu()
     QPalette pal(wBtn->palette());
 
     //设置背景白色
-    pal.setColor(QPalette::Background, Qt::white);
+    pal.setColor(QPalette::Background, QColor(246,246,246));
     wBtn->setAutoFillBackground(true);
     wBtn->setPalette(pal);
     //控制面板栏布局
@@ -212,7 +212,7 @@ void QQMusicMenu::initMusicMenu()
     lbLoginIcon = new QLabel;
     lbLoginText = new QLabel;
     btnLogin->setFixedSize(90,24);
-    btnLogin ->setStyleSheet("QPushButton{background-color: rgb(255,255,255);"
+    btnLogin ->setStyleSheet("QPushButton{background-color: rgb(246,246,246);"
                             "border: none;}");
     lbLoginIcon->setFixedSize(24,24);
     lbLoginIcon->setStyleSheet("QLabel{border-radius: 12px;border-image: url(:/images/login-96.png)}");
