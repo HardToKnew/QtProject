@@ -20,6 +20,7 @@ public:
     explicit QFoldWidget(QWidget *parent = nullptr);
     void setText(QString string);
     void addNewButton(QString string, bool edit = false);//默认关闭编辑
+    int height() const;
 
 public slots:
     void expandPage(bool expand);
@@ -40,6 +41,8 @@ private:
 
     QWidget *widget;//用来放自定义按钮控件
     QList <QCustomButton*> listButton;//存储按钮指针
+    int hight;
+    int btnNameNum = 0;
 
 signals:
 

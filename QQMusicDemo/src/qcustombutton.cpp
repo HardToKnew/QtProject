@@ -1,11 +1,14 @@
 #include "qcustombutton.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QMouseEvent>
+#include <QApplication>
+#include <QDebug>
 QCustomButton::QCustomButton(QWidget *parent)
     : QWidget{parent}
 {
     QVBoxLayout *mLayout = new QVBoxLayout;//
-    wButton = new QPushButton;//NEW
+    wButton = new QPushButton;//202x32
     wButton->setFixedSize(202,32);//NEW
 
     wEdit = new QWidget;
@@ -20,8 +23,9 @@ QCustomButton::QCustomButton(QWidget *parent)
     //this->setLayout(mainLayout);
     //this->setFixedSize(btnSize);
     this->setCursor(Qt::PointingHandCursor);//设置鼠标指针样式
+    //this->setStyleSheet("background-color: rgb(255,0,216);");
     wButton->setStyleSheet("QPushButton{border-width:2px;border-radius: 3px; "
-                                "margin: 2px 25px 2px 25px;}"
+                                "margin: 2px 25px 2px 25px;}"/*上边 | 右边 | 下边 | 左边 */
                                 "QPushButton:hover{background-color: rgb(216,216,216);}");
     /*this->setStyleSheet("QPushButton{border-width:2px;border-radius: 3px; "
                         "margin: 2px 25px 2px 25px;}"
@@ -42,7 +46,7 @@ QCustomButton::QCustomButton(QWidget *parent)
     /*this->setStyleSheet("QPushButton{border-width:2px;border-radius: 3px; "
                         "margin: 2px 25px 2px 25px;}"
                         "QPushButton:hover{background-color: rgb(216,216,216);}");*/
-    this->setMinimumSize(202,32);
+    this->setFixedSize(202,32);
 
     QHBoxLayout *wEditLayout = new QHBoxLayout;
     wEditLayout->setContentsMargins(0,0,0,0);
@@ -68,6 +72,8 @@ QCustomButton::QCustomButton(QWidget *parent)
     lineEditLayout->addWidget(lbNum);
     wEdit->setVisible(false);
 
+    editButtoned();//默认关闭编辑
+
     //wButton->setVisible(false);
 
     connect(lineEdit, &QLineEdit::textEdited, this, [=](){//编辑输入文字
@@ -83,6 +89,8 @@ QCustomButton::QCustomButton(QWidget *parent)
         wEdit->setVisible(false);//关闭编辑框
         wButton->setVisible(true);//显示按钮
     });
+
+    qApp->installEventFilter(this);
 
 }
 
@@ -103,6 +111,7 @@ QString QCustomButton::getButtonText() const
 
 void QCustomButton::editButton()//编辑按钮文字
 {
+    isEdit = true;
     wEdit->setVisible(true);//打开编辑框
     wButton->setVisible(false);//隐藏按钮
     lineEdit->setText(buttonText);//设置编辑栏默认按钮文字
@@ -115,4 +124,29 @@ void QCustomButton::editButtoned()
     this->setText(lineEdit->text());//设置按钮文字
     wEdit->setVisible(false);//关闭编辑框
     wButton->setVisible(true);//显示按钮
+    isEdit = false;
+}
+
+bool QCustomButton::eventFilter(QObject *watched, QEvent *event)
+{
+    if(isEdit)
+    {
+        if(event->type() == QEvent::MouseButtonPress)
+        {
+            QMouseEvent *mouseEvent = dynamic_cast<QMouseEvent *>(event);
+            QPoint pos = mouseEvent->globalPos();
+            pos = this->mapFromGlobal(pos);
+            if(pos.x() < 25 || pos.x() > 177 || pos.y() < 2 || pos.y() > 177)//编辑栏启停坐标(25,2)(177,30)
+            {
+                editButtoned();//编辑结束
+                //qDebug()<<"x="<<pos.x()<<"y="<<pos.y();
+                //qDebug()<<wPos;
+            }
+        }
+    }
+    //else
+    {
+        //editButtoned();
+    }
+    return QWidget::eventFilter(watched, event);
 }

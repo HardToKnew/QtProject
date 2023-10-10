@@ -3,11 +3,13 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QEvent>
+#include <QApplication>
+#include <QDebug>
 QQMusicListW::QQMusicListW(QWidget *parent)
     : QWidget{parent}
 {
     initQQMusicList();
-    this->installEventFilter(this);//
+    qApp->installEventFilter(this);//
 }
 
 void QQMusicListW::pageChanged(int index)
@@ -17,14 +19,13 @@ void QQMusicListW::pageChanged(int index)
 
 void QQMusicListW::initQQMusicList()
 {
-
     //主布局
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins(0,0,0,0);
     this->setLayout(mainLayout);
 
     //scrollBar = new QScrollBar;
-    scrollArea = new QScrollArea;//滚动页面
+    scrollArea = new QScrollArea(this);//滚动页面
     scrollArea->setGeometry(0, 0, 202, 625);//左上长宽
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖向滚动条
@@ -49,20 +50,29 @@ void QQMusicListW::initQQMusicList()
         "QScrollBar::sub-page:vertical {"
         "background: none;}");
 
-    mainLayout->addWidget(scrollArea);
+   // mainLayout->addWidget(scrollArea);
     //mainLayout->addWidget(scrollBar);
+    //this->layout()->addWidget(scrollArea);
+    //this->setWidget.
 
-    QVBoxLayout * scrollAreaLayout = new QVBoxLayout;//滚动区域布局
-    scrollWidget = new QWidget;//滚动界面：用来放控件
+
+    QVBoxLayout * scrollAreaLayout = new QVBoxLayout;//滚动区域布局  默认大小625
+    scrollWidget = new QWidget(scrollArea);//滚动界面：用来放控件
     scrollWidget->setFixedWidth(202);
-    scrollWidget->setMinimumHeight(625);
-    //scrollWidget->setFixedHeight(626);
+    //scrollWidget->setMinimumHeight(625);
+    //scrollWidget->setFixedHeight(625);
+    scrollWidget->setGeometry(0,0,202,625);
     scrollArea->setWidget(scrollWidget);
     scrollWidget->setLayout(scrollAreaLayout);
 
     //在线音乐 label+qpushbutton;
     QSize buttonTitleSize(202,55);//(202,55);
+    onlineMusicWidget = new QWidget;
+    onlineMusicWidget->setFixedHeight(210);
+
     QVBoxLayout *onlineMusicLayout = new QVBoxLayout;
+    onlineMusicLayout->setContentsMargins(0,3,0,0);
+    onlineMusicWidget->setLayout(onlineMusicLayout);
 
     onlineMusicLabelW = new QWidget;
     onlineMusicLabelW->setFixedSize(buttonTitleSize);
@@ -169,7 +179,12 @@ void QQMusicListW::initQQMusicList()
     onlineMusicLayout->addWidget(btnRadar);
     //*************************************
     //我的音乐
+    myMusicWidget = new QWidget;
+    myMusicWidget->setFixedHeight(210);
+
     QVBoxLayout *myMusicLayout = new QVBoxLayout;
+    myMusicLayout->setContentsMargins(0,3,0,0);
+    myMusicWidget->setLayout(myMusicLayout);
 
     myMusicLabelW = new QWidget;
     myMusicLabelW->setFixedSize(buttonTitleSize);
@@ -273,25 +288,55 @@ void QQMusicListW::initQQMusicList()
 
     //创建的歌单 --自定义
     createMusicTreeView = new QTreeView;
-    createMusicW = new QFoldWidget;
+    createMusicW = new QFoldWidget(this);
     createMusicW->setText("创建的歌单");
+    connect(createMusicW, &QFoldWidget::btnExpandClicked, this, &QQMusicListW::changeScrollArea);
 
 
 
     //收藏的歌单 --自定义
     bookmarkMusicTreeView = new QTreeView;
+    bookmarkMusicW = new QFoldWidget(this);
+    bookmarkMusicW->setText("收藏的歌单");
+    connect(bookmarkMusicW, &QFoldWidget::btnExpandClicked, this, &QQMusicListW::changeScrollArea);
 
     //滑动区域布局添加控件
-    scrollAreaLayout->setContentsMargins(0,0,0,0);
-    scrollAreaLayout->addLayout(onlineMusicLayout);
-    scrollAreaLayout->addLayout(myMusicLayout);
+
+
+    scrollAreaLayout->addWidget(onlineMusicWidget);
+    scrollAreaLayout->addWidget(myMusicWidget);
     scrollAreaLayout->addWidget(createMusicW);
-    //scrollAreaLayout->addWidget(bookmarkMusicTreeView);
+    scrollAreaLayout->addWidget(bookmarkMusicW);
+    scrollAreaLayout->setMargin(0);
+    scrollAreaLayout->setSpacing(0);
     scrollAreaLayout->addStretch();
+    myMusicWidget->setStyleSheet("background-color:rgb(32,162,32)");
+    //createMusicW->setStyleSheet("background-color:rgb(102,255,102)");
+
+    //qDebug()<<"shshshshshsh"<<onlineMusicWidget->height()<<myMusicWidget->height() <<createMusicW->height()<<this->height();
 
 
 
 }
+
+void QQMusicListW::changeScrollArea(bool clicked)
+{
+    scrollAreaHight =  onlineMusicWidget->height()
+                      + myMusicWidget->height()
+                      + createMusicW->height()
+                      + bookmarkMusicW->height();
+
+    if(scrollAreaHight>this->height())
+        scrollWidget->setFixedHeight(scrollAreaHight);
+    else
+        scrollWidget->setFixedHeight(this->height());
+
+    if(scrollArea->height()<scrollWidget->height())
+        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);//显示竖向滚动条
+    else
+        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖向滚动条
+}
+
 
 bool QQMusicListW::eventFilter(QObject *obj, QEvent *event)
 {
@@ -300,7 +345,7 @@ bool QQMusicListW::eventFilter(QObject *obj, QEvent *event)
         if (event->type() == QEvent::Enter)
         {
             if(scrollArea->height()<scrollWidget->height())
-                scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);//隐藏竖向滚动条
+                scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);//显示竖向滚动条
             return QObject::eventFilter(obj,event);
         }
         else if(event->type() == QEvent::Leave) //鼠标离开

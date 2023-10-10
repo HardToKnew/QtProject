@@ -26,6 +26,9 @@ public slots:
 private:
     void initQQMusicList();
 
+private slots:
+    void changeScrollArea(bool clicked);
+
 protected:
     bool eventFilter(QObject *obj, QEvent *event);//
 
@@ -33,7 +36,11 @@ private:
     //
     QScrollArea *scrollArea;//滚动页面  滚动条  宽度10
     QWidget *scrollWidget;//滚动界面：用来放控件
+    int scrollAreaHight;
     //QScrollBar *scrollBar;
+    /**********************/
+    //在线音乐
+    QWidget *onlineMusicWidget;
     QWidget *onlineMusicLabelW;
     QLabel *onlineMusicLabel;
 
@@ -52,7 +59,9 @@ private:
     QPushButton *btnRadar;
     QLabel *radarIcon;
     QLabel *radarText;
-    //
+    /**************/
+    //我的音乐
+    QWidget *myMusicWidget;
     QWidget *myMusicLabelW;
     QLabel *myMusicLabel;
 
@@ -71,12 +80,13 @@ private:
     QPushButton *btnAuditionList;
     QLabel *auditionListIcon;
     QLabel *auditionListText;
-
+    /******************/
     QTreeView *createMusicTreeView;//需要自定义
     QTreeView *bookmarkMusicTreeView;//需要自定义
 
     QFoldWidget *createMusicW;
     QFoldWidget *bookmarkMusicW;
+
 
 signals:
 

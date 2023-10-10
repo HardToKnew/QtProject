@@ -17,6 +17,9 @@ QQMusicDemo::QQMusicDemo(QWidget *parent)
     ui->wPlayer->setMouseTracking(true);
     ui->wMenu->installEventFilter(this);//为标题栏添加事件过滤器
 
+    qDebug()<<"this Size:"<<this->size()<<Qt::endl;
+    qDebug()<<"ui->List Size:"<<ui->wList->size()<<Qt::endl;
+
     connect(ui->wMenu, &QQMusicMenu::btnMinimizeClicked, this, [=](){this->showMinimized();});
     connect(ui->wMenu, &QQMusicMenu::btnMaximizeClicked, this, [=](bool flag){
         if(flag)this->showMaximized();

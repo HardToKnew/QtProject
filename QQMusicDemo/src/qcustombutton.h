@@ -25,6 +25,9 @@ public:
     void editButtoned();//编辑完成
     QSize sizeHint();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
 private:
     QPushButton *wButton;
     QWidget *wEdit;
@@ -34,6 +37,7 @@ private:
     int iNum;//剩余可写字个数
     QLabel *lbText;
     QLabel *lbIcon;
+    bool isEdit;
 
 };
 
