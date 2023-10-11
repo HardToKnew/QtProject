@@ -52,7 +52,9 @@ SOURCES += \
     src/qqmusiccenterw.cpp \
     src/qqmusiclistw.cpp \
     src/qqmusicmenu.cpp \
-    src/qqmusicplay.cpp
+    src/qqmusicplay.cpp \
+    src/qqrecommendwidget.cpp \
+    src/qqstackedwidget.cpp
 
 HEADERS += \
     qqmusicdemo.h \
@@ -61,7 +63,9 @@ HEADERS += \
     src/qqmusiccenterw.h \
     src/qqmusiclistw.h \
     src/qqmusicmenu.h \
-    src/qqmusicplay.h
+    src/qqmusicplay.h \
+    src/qqrecommendwidget.h \
+    src/qqstackedwidget.h
 
 FORMS += \
     qqmusicdemo.ui

@@ -310,7 +310,7 @@ void QQMusicListW::initQQMusicList()
     scrollAreaLayout->setMargin(0);
     scrollAreaLayout->setSpacing(0);
     scrollAreaLayout->addStretch();
-    myMusicWidget->setStyleSheet("background-color:rgb(32,162,32)");
+    //myMusicWidget->setStyleSheet("background-color:rgb(32,162,32)");
     //createMusicW->setStyleSheet("background-color:rgb(102,255,102)");
 
     //qDebug()<<"shshshshshsh"<<onlineMusicWidget->height()<<myMusicWidget->height() <<createMusicW->height()<<this->height();
