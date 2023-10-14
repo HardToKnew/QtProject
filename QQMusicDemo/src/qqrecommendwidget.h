@@ -2,7 +2,7 @@
 #define QQRECOMMENDWIDGET_H
 
 #include <QWidget>
-
+#include "ChildWidget/qcustomrecommendwidget.h"
 class QQRecommendWidget : public QWidget
 {
     Q_OBJECT

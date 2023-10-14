@@ -2,11 +2,12 @@
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+//推荐页面
 QQRecommendWidget::QQRecommendWidget(QWidget *parent)
     : QWidget{parent}
 {
     //推荐标题
-    QWidget *titleW = new QWidget;
+    QWidget *titleW = new QWidget(this);
     titleW->setFixedSize(810,76);
 
     QLabel *titleLabel = new QLabel(titleW);
@@ -29,7 +30,7 @@ QQRecommendWidget::QQRecommendWidget(QWidget *parent)
     //titleLabel->setStyleSheet("background-color:rgb(240,10,10);");
     //今日推荐标题栏
     QWidget *todayRecommendW = new QWidget;
-    todayRecommendW->setFixedSize(810,50);
+    todayRecommendW->setFixedSize(810,40);
 
     QLabel *hiLable = new QLabel;
     font = hiLable->font();
@@ -40,7 +41,7 @@ QQRecommendWidget::QQRecommendWidget(QWidget *parent)
     //hiLable->setFixedSize(,60);
     QLabel *nameLabel = new QLabel;
     nameLabel->setFont(font);
-    nameLabel->setText("不四川");
+    nameLabel->setText("测试者");
     QLabel *todayForYouLabel = new QLabel;
     todayForYouLabel->setFont(font);
     todayForYouLabel->setText("今日为你推荐");
@@ -55,13 +56,18 @@ QQRecommendWidget::QQRecommendWidget(QWidget *parent)
     todayRecommendLayout->addWidget(todayForYouLabel);
     todayRecommendLayout->addStretch();
     todayRecommendW->setLayout(todayRecommendLayout);
-    todayRecommendW->setStyleSheet("background-color:rgb(240,100,10);");
+    //todayRecommendW->setStyleSheet("background-color:rgb(240,100,10);");
+
+    //今日推荐轮播界面
+    QCustomRecommendWidget *customRecommendW = new QCustomRecommendWidget(this);
+
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
     mainLayout->addWidget(titleW);
     mainLayout->addWidget(todayRecommendW);
+    mainLayout->addWidget(customRecommendW);
     mainLayout->addStretch();
     this->setLayout(mainLayout);
 
