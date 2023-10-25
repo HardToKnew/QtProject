@@ -47,6 +47,7 @@ contains(QT_ARCH, i386) {
 SOURCES += \
     main.cpp \
     qqmusicdemo.cpp \
+    src/ChildWidget/qcustomlabel.cpp \
     src/ChildWidget/qcustommusiclable.cpp \
     src/ChildWidget/qcustomrecommendwidget.cpp \
     src/qcustombutton.cpp \
@@ -60,6 +61,7 @@ SOURCES += \
 
 HEADERS += \
     qqmusicdemo.h \
+    src/ChildWidget/qcustomlabel.h \
     src/ChildWidget/qcustommusiclable.h \
     src/ChildWidget/qcustomrecommendwidget.h \
     src/qcustombutton.h \

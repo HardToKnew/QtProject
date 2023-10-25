@@ -1,4 +1,5 @@
 #include "qcustomrecommendwidget.h"
+#include "qcustommusiclable.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QDebug>
@@ -14,20 +15,20 @@ QCustomRecommendWidget::QCustomRecommendWidget(QWidget *parent)
     int topMargin = 12;
     //左边按钮
     btnPrevious = new QPushButton(this);
-    btnPrevious->setFixedSize(40, hight);
+    btnPrevious->setFixedSize(40, 80);
     //btnPrevious->setStyleSheet("background-color:rgb(0,0,210);");
     QVBoxLayout *previousLayout = new QVBoxLayout;
-    previousLayout->setContentsMargins(0, topMargin, 0, topMargin);
+    previousLayout->setContentsMargins(0, topMargin+42, 0, topMargin);
     previousLayout->setSpacing(0);
     previousLayout->addWidget(btnPrevious);
     previousLayout->addStretch();
 
     //右边按钮
     btnNext = new QPushButton(this);
-    btnNext->setFixedSize(40, hight);
+    btnNext->setFixedSize(40, 80);
     //btnNext->setStyleSheet("background-color:rgb(210,0,0);");
     QVBoxLayout *nextLayout = new QVBoxLayout;
-    nextLayout->setContentsMargins(0, topMargin, 0, topMargin);
+    nextLayout->setContentsMargins(0, topMargin+42, 0, topMargin);
     nextLayout->setSpacing(0);
     nextLayout->addWidget(btnNext);
     nextLayout->addStretch();
@@ -74,13 +75,14 @@ QCustomRecommendWidget::QCustomRecommendWidget(QWidget *parent)
 
 
     //每日30首 164*220
-    QWidget *daylyW = new QWidget;
+    QCustomMusicLable  *daylyW = new QCustomMusicLable;
     daylyW->setFixedSize(QSize(hight, stackedW->size().height()));
-    daylyW->setStyleSheet("background-color:rgb(0,0,255);");
+    daylyW->setText("每日30首");
+    //daylyW->setStyleSheet("background-color:rgb(0,0,255);");
     //百万收藏
-    QWidget *hotW = new QWidget;
+    QCustomMusicLable *hotW = new QCustomMusicLable;
     hotW->setFixedSize(QSize(hight, stackedW->size().height()));
-
+    hotW->setText("百万收藏");
     //第一页布局
     int space = 20;
     QHBoxLayout *firstLayout = new QHBoxLayout;
@@ -97,18 +99,19 @@ QCustomRecommendWidget::QCustomRecommendWidget(QWidget *parent)
     //secondW->setStyleSheet("background-color:rgb(0,255,0);");
 
     //新歌推荐
-    QWidget *newW = new QWidget;
+    QCustomMusicLable *newW = new QCustomMusicLable;
     newW->setFixedSize(QSize(hight, stackedW->size().height()));
-    newW->setStyleSheet("background-color:rgb(0,255,0);");
+    newW->setText("新歌推荐");
+    //newW->setStyleSheet("background-color:rgb(0,255,0);");
     //雷达模式
-    QWidget *radarW = new QWidget;
+    QCustomMusicLable *radarW = new QCustomMusicLable;
     radarW->setFixedSize(QSize(hight, stackedW->size().height()));
-
+    radarW->setText("雷达模式");
     //第二页布局
     QHBoxLayout *secondLayout = new QHBoxLayout;
     secondLayout->setSpacing(space);
     secondLayout->setMargin(0);
-    //secondLayout->addWidget(newW);
+    secondLayout->addWidget(newW);
     secondLayout->addWidget(radarW);
     secondLayout->addStretch();
     secondW->setLayout(secondLayout);

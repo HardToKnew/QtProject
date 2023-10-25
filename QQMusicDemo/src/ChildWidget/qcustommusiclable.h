@@ -11,10 +11,15 @@ public:
     //5种类型
     enum Type
     {
-        tyDefault//普通样式  默认
+        tyDefault,//普通样式  默认
+        ty
     };
     explicit QCustomMusicLable(QWidget *parent = nullptr);
     QSize sizeHint() const;
+    void setText(QString string);
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private:
 
