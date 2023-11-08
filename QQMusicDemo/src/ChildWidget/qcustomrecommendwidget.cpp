@@ -77,11 +77,20 @@ QCustomRecommendWidget::QCustomRecommendWidget(QWidget *parent)
     //每日30首 164*220
     QCustomMusicLable  *daylyW = new QCustomMusicLable;
     daylyW->setFixedSize(QSize(hight, stackedW->size().height()));
+    daylyW->setPicturelayer(true);
+    daylyW->setPicturelayerText("Daily 30");
+    daylyW->setPicturelayerColor(QColor(34, 92, 254));
+    daylyW->setPicturePlayButton(true);
+    //daylyW->setMoveAnime(false);
     daylyW->setText("每日30首");
     //daylyW->setStyleSheet("background-color:rgb(0,0,255);");
     //百万收藏
     QCustomMusicLable *hotW = new QCustomMusicLable;
     hotW->setFixedSize(QSize(hight, stackedW->size().height()));
+    hotW->setPicturelayer(true);
+    hotW->setPicturelayerText("Hot");
+    hotW->setPicturelayerColor(QColor(255, 148, 148));
+    hotW->setPicturePlayButton(true);
     hotW->setText("百万收藏");
     //第一页布局
     int space = 20;
@@ -101,11 +110,19 @@ QCustomRecommendWidget::QCustomRecommendWidget(QWidget *parent)
     //新歌推荐
     QCustomMusicLable *newW = new QCustomMusicLable;
     newW->setFixedSize(QSize(hight, stackedW->size().height()));
+    newW->setPicturelayer(true);
+    newW->setPicturelayerText("New");
+    newW->setPicturelayerColor(QColor(34, 213, 156));
+    newW->setPicturePlayButton(true);
     newW->setText("新歌推荐");
     //newW->setStyleSheet("background-color:rgb(0,255,0);");
     //雷达模式
     QCustomMusicLable *radarW = new QCustomMusicLable;
     radarW->setFixedSize(QSize(hight, stackedW->size().height()));
+    radarW->setPicturelayer(true);
+    radarW->setPicturelayerText("Radar");
+    radarW->setPicturelayerColor(QColor(255, 148, 148));
+    radarW->setPicturePlayButton(true);
     radarW->setText("雷达模式");
     //第二页布局
     QHBoxLayout *secondLayout = new QHBoxLayout;
